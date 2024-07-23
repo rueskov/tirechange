@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: tirechange
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tierchange
+    username: tierchangeuser
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  devtools:
+    restart:
+      enabled: false
+  mvc:
+    converters:
+      preferred-json-mapper: jackson
+  http:
+    converters:
+      preferred-json-mapper: jackson
+      preferred-media-types:
+        xml: application/xml
+
+logging:
+  level:
+    root: INFO
+    com.smit.tirechange: DEBUG
+    org.springframework.security: INFO
+  file:
+    name: spring-boot-logger.log
+
+tire:
+  london:
+    address: 1A Gunton Rd, London
+    supported-vehicles: car
+    api-url: "http://localhost:9003/api/v1/tire-change-times"
+  manchester:
+    address: 14 Bury New Rd, Manchester
+    supported-vehicles: car, truck
+    api-url: "http://localhost:9004/api/v2/tire-change-times"
